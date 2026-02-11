@@ -1,0 +1,22 @@
+name: event
+version: '0.67'
+main: sep.banaanatjuh.event.Main
+api-version: '1.21'
+authors: [ Banaanatjuh ]
+description: event plugin
+softdepend:
+  - PlaceholderAPI
+
+commands:
+  startminigame:
+    description: Start a minigame
+    usage: /startminigame <chicken_shooter|build_battle|hide_and_seek|...>
+    aliases: [minigame, mg]
+  endminigame:
+    description: End the current minigame
+    usage: /endminigame
+    aliases: [endmg]
+  setminigamespawn:
+    description: Set minigame spawn location
+    usage: /setminigamespawn <minigame> <main|extra> <world>
+    aliases: [setspawn]
