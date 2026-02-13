@@ -42,19 +42,19 @@ public class LayerPlaceholder extends PlaceholderExpansion {
       if (y >= 94 && y <= 100) {
          return "1/5";
       }
-      if (y >= 88) {
+      if (y >= 88 && y <= 94) {
          return "2/5";
       }
-      if (y >= 82) {
+      if (y >= 82 && y <= 88) {
          return "3/5";
       }
-      if (y >= 76) {
+      if (y >= 76 && y <= 82) {
          return "4/5";
       }
-      if (y >= 70) {
+      if (y >= 70 && y <= 76) {
          return "5/5";
       }
-      if (y < 70 || y < 100 ) {
+      if (y < 70 || y > 100 ) {
          return "N.V.T.";
       }
       return "error";
