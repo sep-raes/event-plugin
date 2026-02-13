@@ -20,3 +20,17 @@ commands:
     description: Set minigame spawn location
     usage: /setminigamespawn <minigame> <main|extra> <world>
     aliases: [setspawn]
+  givepoints:
+    description: Give minigame points
+    usage: /givepoints <minigame> <player> <place>
+    aliases: [givep]
+
+permissions:
+  event.command.startminigame:
+    default: false
+  event.command.endminigame:
+    default: false
+  event.command.setminigamespawn:
+    default: false
+  event.command.givepointscommand:
+    default: false

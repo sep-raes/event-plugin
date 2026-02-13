@@ -30,9 +30,13 @@ public class SetMinigameSpawnCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage("This command can only be used by players!");
-            return false;
+            return true;
         }
         Player player = (Player) sender;
+        if (!player.hasPermission("event.command.setminigamespawn")) {
+            player.sendMessage("&4You don't have the permission to do this");
+            return true;
+        }
         return onSetMinigameSpawnCommand(player, args);
     }
 
@@ -66,14 +70,14 @@ public class SetMinigameSpawnCommand implements CommandExecutor, TabCompleter {
 
 
 
-        if (spawnType.equals("main")) {
+        if (spawnType.equals("main") || (minigameName.equals("main"))) {
 
             double x = location.getX();
             double y = location.getY();
             double z = location.getZ();
-            double pitch = location.getPitch();
             double yaw = location.getYaw();
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mvsetspawn " + worldName + ":" + x + "," + y + "," + z + "," + pitch + "," + yaw + " --unsafe");
+            double pitch = location.getPitch();
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mvsetspawn " + worldName + ":" + x + "," + y + "," + z + "," + yaw + "," + pitch + " --unsafe");
 
         }
 

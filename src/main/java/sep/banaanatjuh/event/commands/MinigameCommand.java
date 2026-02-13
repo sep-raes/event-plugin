@@ -37,6 +37,11 @@ public class MinigameCommand implements CommandExecutor, TabCompleter {
         }
         Player player = (Player) sender;
 
+        if (!player.hasPermission("event.command.startminigame")) {
+            player.sendMessage("&4You don't have the permission to do this");
+            return true;
+        }
+
         if (!Main.getMinigame().equals("none")) {
             player.sendMessage(Component.text("A minigame is already active! You must use /endminigame first."));
             return true;

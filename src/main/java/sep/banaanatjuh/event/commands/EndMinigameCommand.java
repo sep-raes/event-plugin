@@ -24,6 +24,10 @@ public class EndMinigameCommand implements CommandExecutor {
          return true;
       } else {
          Player player = (Player)sender;
+         if (!player.hasPermission("event.command.endminigame")) {
+            player.sendMessage("&4You don't have the permission to do this");
+            return true;
+         }
          String currentMinigame = Main.getMinigame();
          if (currentMinigame.equals("none")) {
             player.sendMessage("No minigame is currently active!");
