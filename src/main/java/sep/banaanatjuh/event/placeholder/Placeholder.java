@@ -1,8 +1,9 @@
-package sep.banaanatjuh.event;
+package sep.banaanatjuh.event.placeholder;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import sep.banaanatjuh.event.Main;
 
 public class Placeholder extends PlaceholderExpansion {
    @Override

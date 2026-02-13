@@ -1,4 +1,4 @@
-package sep.banaanatjuh.event;
+package sep.banaanatjuh.event.placeholder;
 
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;

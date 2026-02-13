@@ -1,4 +1,4 @@
-package sep.banaanatjuh.event;
+package sep.banaanatjuh.event.placeholder;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;

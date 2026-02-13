@@ -21,6 +21,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import sep.banaanatjuh.event.commands.EndMinigameCommand;
 import sep.banaanatjuh.event.commands.MinigameCommand;
 import sep.banaanatjuh.event.commands.SetMinigameSpawnCommand;
+import sep.banaanatjuh.event.placeholder.*;
 import sep.banaanatjuh.event.storage.StorageManager;
 
 
@@ -42,6 +43,7 @@ public final class Main extends JavaPlugin implements Listener {
          new LayerPlaceholder().register();
          new RoundPlaceholder().register();
          new TimePlaceholder().register();
+         new CheckpointPlaceholder().register();
 
       }
 
