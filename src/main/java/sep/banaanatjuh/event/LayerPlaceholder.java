@@ -39,7 +39,7 @@ public class LayerPlaceholder extends PlaceholderExpansion {
       if (!Objects.equals(minigame, "tnt_run")) {
          return "Error TNT_RUN not active";
       }
-      if (y >= 94) {
+      if (y >= 94 && y <= 100) {
          return "1/5";
       }
       if (y >= 88) {
@@ -53,6 +53,9 @@ public class LayerPlaceholder extends PlaceholderExpansion {
       }
       if (y >= 70) {
          return "5/5";
+      }
+      if (y < 70 || y < 100 ) {
+         return "N.V.T.";
       }
       return "error";
 

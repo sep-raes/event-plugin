@@ -10,6 +10,7 @@ import net.kyori.adventure.title.Title.Times;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,6 +26,7 @@ import sep.banaanatjuh.event.storage.StorageManager;
 
 public final class Main extends JavaPlugin implements Listener {
    private static String minigame = "none";
+   private static String round = "none";
    private StorageManager storageManager;
    private static Main instance;
 
@@ -37,12 +39,20 @@ public final class Main extends JavaPlugin implements Listener {
       if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
          new Placeholder().register();
          new PointsPlaceholder(this.storageManager).register();
+         new LayerPlaceholder().register();
+         new RoundPlaceholder().register();
+         new TimePlaceholder().register();
 
       }
 
       String savedMinigame = this.storageManager.readData("current_minigame");
       if (savedMinigame != null) {
          minigame = savedMinigame;
+      }
+
+      String savedRound = this.storageManager.readData("current_round");
+      if (savedRound != null) {
+         round = savedRound;
       }
 
       this.getCommand("startminigame").setExecutor(new MinigameCommand(storageManager));
@@ -103,10 +113,20 @@ public final class Main extends JavaPlugin implements Listener {
       return minigame;
    }
 
+   public static String getRound() { return round; }
+
    public static void setMinigame(String newMinigame) {
       minigame = newMinigame;
       if (instance != null && instance.storageManager != null) {
          instance.storageManager.writeData("current_minigame", minigame);
+      }
+   }
+
+   public static void setRound(String newRound) {
+      round = newRound;
+
+      if (instance != null && instance.storageManager != null) {
+         instance.storageManager.writeData("current_round", String.valueOf(round));
       }
    }
 }
